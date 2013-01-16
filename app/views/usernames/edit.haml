@@ -1,0 +1,15 @@
+%h2 Change username
+
+%p
+  Your username is how other users on the site see you.  Change your username below.
+  
+- form_for current_user, :url => username_path do |f|
+  = f.error_messages
+
+  = f.label :login, 'Username'
+
+  = f.text_field :login
+
+  = f.submit "Update", { :class => 'formButton' }
+
+%p{:style => "clear: both"}= link_to "Back to account settings", account_path

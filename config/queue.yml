@@ -1,0 +1,15 @@
+development:
+  blips: listable_blips_development
+  apns: listable_apns_development
+
+test:
+  blips: listable_blips_test
+  apns: listable_apns_test
+
+staging:
+  blips: listable_blips_staging
+  apns: listable_apns_staging
+  
+production:
+  blips: listable_blips_production
+  apns: listable_apns_production

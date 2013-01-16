@@ -1,0 +1,64 @@
+%h2 Listable on your iPhone
+
+%p
+  The free Listable iPhone application allows you to manage and share your lists while on the go.  All of the social and 
+  list management features available #{link_to('on the Listable web app', '/web')} are available from your iPhone.
+
+%p
+  The Listable iPhone app takes advantage of the capabilities of the iPhone, including shake sensitivity and push
+  notifications, to facilitate collaboration and organization.
+
+.iphone-promo-block
+  .promo-text
+    %h3 Create and Reorder Lists
+
+    %p
+      Create lists by tapping the "plus" button in the upper right of the list index.  You'll be prompted for the name of 
+      the new list and immediately placed in list editing mode, where you can start adding items.
+      
+    %p
+      Re-arrange your lists to put the most important ones at the top by tapping on the pencil icon.  You can then drag
+      the lists to a new position so that the important ones are more readily accessible.
+
+    %p=# link_to(image_tag("iphone_marketing_badge.png"), 'http://itunes.apple.com/app/listable/id340207373?mt=8')
+
+  .promo-image
+    = image_tag "list_view.png", :style => "float: left;", :height => "200px", :width => "140px"
+
+.iphone-promo-block
+  .promo-text
+
+    %h3 Share your lists
+
+    %p
+      Tap the icon with the portraits from any list view, and you'll see a list of users with whom your list is 
+      shared.  Clicking on the "plus" button opens your iPhone Contacts list.  Easily add a list collaborator by tapping
+      on the name of someone who you'd like to share a list.  They'll be automatically emailed to let them know that you've
+      shared a list with them.
+
+  .promo-image
+    = image_tag "list_editors.png", :style => "float: left;", :height => "200px", :width => "140px"
+
+
+.iphone-promo-block
+  .promo-text
+  
+    %h3 Manage List Items
+
+    %p
+      Listable on the iPhone offers an elegant interface for managing list items.  One tap is all it takes to complete
+      or uncomplete an item.  Edit an item name or a list title by tapping on it.
+
+    %p
+      Pro tip: Shake your iPhone on any Listable screen to see the latest updates.  Don't want to shake it in public?  That's OK,
+      everything is refreshed every time you view lists or lists items anyway.
+
+  .promo-image
+    = image_tag "list_index.png", :style => "float: left;", :height => "200px", :width => "140px"
+
+%p{:style => "clear: left"}== Read enough?  #{link_to('Get Listable now for free from the App Store', 'http://itunes.apple.com/app/listable/id340207373?mt=8')}.
+
+- if request.format == :iphone
+  -# We don't use the header bar here, provide necessary links to get around below form
+  %p= link_to "Log in", new_user_session_path
+  %p= link_to "Create an account", new_user_path

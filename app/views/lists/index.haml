@@ -1,0 +1,12 @@
+#list_items
+
+  - if request.format == :iphone
+    = render :partial => "shared/not_optimized_for_iphone"
+
+  %h2 Welcome to Listable
+      
+  - unless current_user.lists.empty?
+    %p Select a list on the left.
+    = render :partial => "blips/index"
+  - else
+    %p Get started by clicking the 'Add a list' button to the left.

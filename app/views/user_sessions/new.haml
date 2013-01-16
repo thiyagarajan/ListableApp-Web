@@ -1,0 +1,26 @@
+%h2 Log In
+
+- form_for @user_session, :url => user_session_path do |f|
+  = f.error_messages
+
+  = f.label :login, 'Username'
+
+  = f.text_field :login, { :class => 'form_field_right' }
+
+  = f.label :password
+  = f.password_field :password, { :class => 'form_field_right' }
+
+  - unless request.format == :iphone
+    = f.label :remember_me
+    = f.check_box :remember_me, { :class => 'checkBox' }
+
+  = f.submit "Log in", {:class => 'formButton'}
+
+%p{:style => "clear: both"}= link_to "Forgot your password?", new_password_reset_path
+
+- if request.format == :iphone
+  -# We don't use the header bar here, provide necessary links to get around below form
+  %p== Don't have an account?  #{link_to "Create one", new_user_path}.
+  %p== Go to our #{link_to "Home page", '/'}.
+  
+= javascript_tag "$('user_session_login').focus()"

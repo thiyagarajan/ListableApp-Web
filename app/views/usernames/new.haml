@@ -1,0 +1,38 @@
+%h2 Create an account
+
+
+- form_for @user, :url => account_path do |f|
+  = f.error_messages
+
+  = f.label :login, 'Username (how your friends see you on Shared Lists)'
+
+  = f.text_field :login
+
+  = f.label :email
+
+  = f.text_field :email
+
+  = f.label :password
+
+  = f.password_field :password
+
+  = f.label :password_confirmation
+
+  = f.password_field :password_confirmation
+
+  = label :accept_promo_emails, "Receive promotional emails *"
+  
+  = f.check_box :accept_promo_emails, {:class => 'checkBox'}
+
+  %p{:style => "font-weight: bold; clear: both"}
+    You will need to confirm your account via email before you can log in.
+
+  = f.submit "Register", {:class => 'formButton'}
+
+  %p{:style => "clear: both"}
+    * Listable will occasionally send emails about updates and new features.  Check this box if you
+    would be interested in receiving these updates.
+
+  %p== Already have an account? #{link_to("Log in", new_user_session_path)}.
+
+= javascript_tag "$('user_login').focus()"

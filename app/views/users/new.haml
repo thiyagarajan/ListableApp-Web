@@ -1,0 +1,30 @@
+%h2 Create an account
+
+- form_for @user, :url => account_path do |f|
+  = f.error_messages
+
+  = f.label :login, 'Username'
+
+  = f.text_field :login
+
+  = f.label :email
+
+  = f.text_field :email
+
+  = f.label :password
+
+  = f.password_field :password
+
+  = f.label :password_confirmation
+
+  = f.password_field :password_confirmation
+
+  = label :accept_promo_emails, "Send me email updates"
+  
+  = f.check_box :accept_promo_emails, {:class => 'checkBox'}
+
+  = f.submit "Register", {:class => 'formButton'}
+
+  %p{:style => "clear: both"}== Already have an account? #{link_to("Log in", new_user_session_path)}.
+
+= javascript_tag "$('user_login').focus()"

@@ -1,0 +1,44 @@
+-# Used by javascripts on this page so they know the ID of this list.
+#listId.hidden= @list.id
+
+- if request.format == :iphone
+  = render :partial => "shared/not_optimized_for_iphone"
+
+#editable_title
+  %h2{:class => 'list_title', :id => 'list_title'}= @list.name
+
+= link_to(image_tag("collaborators_button.png", :alt => "Share this list", :height => 26, :width => 101), list_collaborators_path(@list), :class => 'collaborators_button', :title => "Click to share this list with someone")
+= link_to(image_tag("unsubscribe_list_button.png", :alt => "Unsubscribe from this list", :height => 26, :width => 101), list_path(@list), :method => :delete, :confirm => unsubscribe_text_for(@list), :class => 'delete_list_button', :title => "Click to unsubscribe from the current list")
+                                       
+#selectedItemMenu
+  = label_tag 'sort_action', 'Sort'
+  = select_tag('sort_action', options_for_select([ 'Priority', 'Alphabetical' ].map{|i| [i, i]}), :id => 'sortAction')
+
+  = label_tag 'filter', 'Filter'
+  = text_field_tag('filter', {}, :id => 'filterListTextField')
+
+  = label_tag 'selected_action', 'Selected'
+  = select_tag('selected_action', options_for_select([ 'Complete', 'Uncomplete', 'Delete' ].map{|i| [i, i]}.unshift(['Select Action', ''])), :id => 'selectedAction')
+
+#list_items
+
+  %h3{:id => 'active_item_header'}
+    = link_to 'Active Items', '#', :id => 'selectActiveItems', :title => "Click to select all active items"
+    %span{:id => 'active_item_count'}
+
+  #addItemForm= render :partial => 'new', :locals => { :list => @list }
+  #addItemButton= image_tag('add_list_item_button.png', :title => "Click this button or type 'a' to add an item to this list")
+
+  #active_items
+    %ul{:id => "sortable", :class => "item_list"}
+
+  %h3{:id => 'completed_item_header'}
+    = link_to 'Completed Items', '#', :id => 'selectCompletedItems', :title => "Click to select all inactive items"
+    %span{:id => 'completed_item_count'}
+
+  #completed_items
+    %ul{:class => "item_list"}
+
+
+.clearfix
+%p= link_to(( @link.watching? ? 'Unwatch' : 'Watch' ) + ' this list', list_watch_path(:id => @link.id), :method => :put)

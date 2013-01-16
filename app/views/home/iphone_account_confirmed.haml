@@ -1,0 +1,7 @@
+%h2 Account confirmed
+
+%p== Thank you for confirming your account#{current_user.nil? ? "" : " " + current_user.login}.  Please open the Listable App and log in to get started.
+
+%p{:style => "padding-left: 55px"}= image_tag('iphone_diagonal.jpg', :height => 100, :width => 150)
+
+%p{:style => "font-size: smaller"}= link_to('Listable home page', '/')

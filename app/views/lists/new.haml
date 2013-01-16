@@ -1,0 +1,10 @@
+%h2 Create a new list
+
+#js_validation_errors
+
+%p Enter a title for your list below.
+
+- form_for @list, { :url => lists_path(@user), :action => "create"}, :class => 'add-list-form' do |f|
+  = render :partial => "form", :locals => { :f => f }
+
+= javascript_tag "$('list_name').focus()"

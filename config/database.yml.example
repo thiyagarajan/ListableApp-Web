@@ -1,0 +1,9 @@
+development:
+  adapter: mysql
+  database: listable_app_development
+  user: root
+
+test:
+  adapter: mysql
+  database: listable_app_test
+  user: root

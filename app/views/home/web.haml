@@ -1,0 +1,35 @@
+%h2 Listable on your Computer
+
+%p
+  Listable has a powerful and elegant web interface to manage your lists when you're in front of your computer.
+  
+.promo-block
+  .promo-text
+    %h2 Quickly edit re-arrange lists and list items
+
+    %p
+      Organizing your lists is easy in the web interface.  Re-arrange lists and list items by clicking on them and 
+      dragging.  Complete and uncomplete items with a single click on the red or green icon next to the list item.
+      Delete them by clicking on the red "X" at the right of the item box.
+      
+  .promo-image
+    = image_tag "list_screenshot.png", :style => "float: left;", :height => "200px", :width => "200px"
+
+.promo-block
+  .promo-text
+    %h2 See the latest activity on your lists at a glance
+
+    %p
+      Listable is the only ToDo list application that facilitates social list usage by adding
+      an "Activity Feed" where you can see the latest changes by members of your team or family.
+
+  .promo-image
+    = image_tag "activity_feed_web.png", :style => "float: left;", :height => "200px", :width => "220px"
+
+
+%p{:style => "clear: left; padding-top: 20px"}== #{link_to('Sign up for a free account', new_account_path)} to see how Listable will help you to organize, collaborate, and simplify your life.
+
+- if request.format == :iphone
+  -# We don't use the header bar here, provide necessary links to get around below form
+  %p= link_to "Log in", new_user_session_path
+  %p= link_to "Create an account", new_user_path

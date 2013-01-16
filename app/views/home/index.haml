@@ -1,0 +1,57 @@
+%h2 Simple, mobile lists at your fingertips, endless possibilities.
+
+- if request.format == :iphone
+  -# We don't use the header bar here, provide necessary links to get around below form
+  %p== #{link_to "Log in", new_user_session_path} or #{link_to "create an account", new_user_path}
+
+%p
+  Listable is the free, social ToDo list application available on iPhone and the web.  It's more than just another list 
+  App - Listable opens an immediate communications channel among members of your professional team or family.
+
+%p{:style => "clear: left; padding-top: 20px"}== #{link_to('Sign up for a free account', new_account_path)} to see how Listable will help you to organize, collaborate, and simplify your life.
+
+.promo-block
+  .promo-text
+    %h2 Listable on your iPhone
+
+    %p
+  
+      Manage your lists and share them with others in the elegant and simple iPhone App.  Listable on iPhone
+      allows you to share your lists with friends and associates in your iPhone contacts list.  Push notifications alert you to 
+      changes that others have made to your shared lists.
+
+    %p== #{link_to('Learn more about the Listable App', '/iphone')} or #{link_to('download it now from the App Store', 'http://itunes.apple.com/app/listable/id340207373?mt=8')}.
+
+    %p=# link_to(image_tag("iphone_marketing_badge.png"), 'http://itunes.apple.com/app/listable/id340207373?mt=8')
+
+  .promo-image
+    = link_to(image_tag("list_view.png", :style => "float: left;", :height => "200px", :width => "140px"), '/iphone')
+
+.promo-block
+  .promo-text
+    %h2{:style => "clear: left"} Listable on your Computer
+
+    %p
+      Manage your lists and share them with others in the Listable web app.  Features in-place editing
+      of list items and titles, easy re-arrangement of lists and items, as well as views of the 
+      Activity Feed.  When you modify an item shared with users on an iPhone, they get push notifications
+      telling them what you changed.
+
+    %p== #{link_to('Learn more about Listable on the web', '/web')}.
+    
+  .promo-image
+    = link_to(image_tag("list_screenshot.png", :style => "float: left;", :height => "200px", :width => "200px"), '/web')
+
+.promo-block
+  .promo-text
+    %h2{:style => "clear: left"} Follow us!
+
+    %p== Listable uses Twitter to update users on new features.  #{link_to('Follow us', 'http://twitter.com/ListableApp')} to see what we're up to.
+
+  .promo-image
+    = link_to(image_tag("twitter.jpg", :style => "float: left;", :height => "102px", :width => "225px"), 'http://twitter.com/ListableApp')
+
+
+%p{:style => "clear: left;"}== Still have questions?  Check out the #{link_to('FAQ', '/faq')} or email us at support@listableapp.com.
+
+  

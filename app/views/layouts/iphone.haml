@@ -1,0 +1,37 @@
+!!! XML
+!!! 1.0 Strict
+
+%html{html_attrs}
+  %head
+    = stylesheet_link_tag 'listable_app_iphone'
+    
+    :plain
+      <meta name = "viewport" content = "width = device-width">
+    
+    %title= "#{@title || 'ListableApp.com'} | Organize, collaborate, and simplify your life."
+
+  %body
+  
+    #page-header
+      %h1= link_to('Listable', '/')
+
+      #userinfo
+        = page_header_links
+
+    #main-content
+      = render_flash_messages
+    
+      - if current_user
+        #page-content
+          = yield
+          
+      - else
+        #intro-page-content
+          = yield
+    
+          
+    #footer
+      - if current_user
+        %p= link_to("Log out", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?")
+        
+      %p &#169; 2009 ListableApp.com

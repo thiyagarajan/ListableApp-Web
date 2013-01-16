@@ -1,0 +1,5 @@
+%form{:id => 'newItemForm' }
+  = text_field "item", "name", :class => 'in-line-add-field', :id => 'newItemName'
+
+  = submit_tag 'Done', :class => 'in-line-add-button', :id => 'addItemSubmit'
+  = submit_tag 'Cancel', :class => 'in-line-add-button', :id => 'addItemCancel'

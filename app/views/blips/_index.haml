@@ -1,0 +1,5 @@
+%h3 Recent updates
+
+%ul
+  - Blip.for_user(current_user).each do |b|
+    %li= render_blip(b)

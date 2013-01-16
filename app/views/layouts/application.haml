@@ -1,0 +1,61 @@
+
+!!!
+
+%html{html_attrs}
+  %head
+    = stylesheet_link_tag 'listable_app'
+    =#javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'
+    = javascript_include_tag 'jquery-1.4.2.js'
+    = javascript_include_tag 'jquery.jeditable.js'
+    = javascript_include_tag 'jquery-ui-1.8.2.custom.min.js'
+    = javascript_include_tag 'jquery.hotkeys.js'    
+    = javascript_include_tag 'items.js'
+    = javascript_include_tag 'application.js'
+
+    = auto_discovery_link_tag('image/x-icon', '/images/favicon.ico', :rel => 'shortcut icon', :title => '')
+
+    :javascript
+      var AUTH_TOKEN = #{form_authenticity_token.inspect};
+      
+    %title= "#{@title || 'ListableApp.com'} | Organize, collaborate, and simplify your life."
+
+  %body
+
+    #container.clearfix
+
+      #page-header
+        %h1= link_to('Listable', '/')
+
+        #userinfo
+          = page_header_links
+      
+      #main-content
+        = render_flash_messages
+      
+        - unless current_user.nil?
+          #list_index
+            = render :partial => "lists/list_index"
+      
+        - if current_user
+          #page-content
+            = yield
+            
+        - else
+          #intro-page-content
+            = yield
+        
+      #footer
+        %p{:style => 'padding: 0px; float: left; margin: 2px'} Developed by #{link_to "Stack Builders Inc.", "http://stackbuilders.com"}
+    
+        %p{:style => 'padding: 0px; float: right; margin: 1px'}== Contact us at #{mail_to 'support@listableapp.com'}
+
+:javascript
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17330464-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();

@@ -1,0 +1,7 @@
+%h2 List Invitation
+
+%p= "You've been invited to share a list titled \"#{@collaborator.list.name}\" by #{@collaborator.creator.email}."
+
+%p= invitation_login_message
+  
+%p= "Note that this list been shared with #{@collaborator.email}, so you'll need to log in to an account on listableapp.com with that email in order to see the list that this invitation is attached to."

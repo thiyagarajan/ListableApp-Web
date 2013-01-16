@@ -1,0 +1,9 @@
+= javascript_include_tag 'user_list.js'
+
+%h3 Your Lists
+
+%ul{:id => "movable-user-list"}
+  - current_user.user_list_links.each do |l|
+    %li{:id => "#{l.id}", :class => "activeLists"}= link_to(l.list.name, list_items_path(l.list), :title => "Click to view this list, or drag up or down to reposition")
+
+=  link_to(image_tag('add_list_button.png'), new_list_path, :title => "Click to add a new list")

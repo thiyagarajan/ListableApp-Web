@@ -1,0 +1,21 @@
+%h2 Edit my account
+
+%p
+  Change your account password below.
+  
+- form_for @user, :url => account_path do |f|
+  = f.error_messages
+
+  = f.label :password, 'New password'
+
+  = f.password_field :password
+
+  = f.label :password_confirmation, 'Confirm new password'
+
+  = f.password_field :password_confirmation
+
+  = f.submit "Update", { :class => 'formButton' }
+
+%p{:style => "clear: both"}== To update your email address, please contact us at #{mail_to 'support@listableapp.com'}.
+
+= link_to "Back to account settings", account_path

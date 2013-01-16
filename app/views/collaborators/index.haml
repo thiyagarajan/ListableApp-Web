@@ -1,0 +1,11 @@
+%h2
+  = link_to(@list.name, list_items_path(@list))
+  is shared with the following people:
+
+#collaborator_list
+
+  %ul
+    = render :partial => "collaborator", :collection => @collaborators
+
+  #collaborator_footer
+    %p= link_to('Add a collaborator', new_list_collaborator_path(@list))

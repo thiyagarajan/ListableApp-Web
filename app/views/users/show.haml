@@ -1,0 +1,11 @@
+%h2== Username: #{current_user.login} (#{link_to('change', edit_username_path)})
+
+%p== Your email: #{current_user.email}
+
+%p= link_to('Change password', edit_account_path)
+
+%p== Change your user image by going to #{link_to("gravatar.com", "http://gravatar.com")} and setting up an account with the email address you use on Listable.
+
+%p== See our #{link_to 'privacy policy', '/privacy'}.
+
+%p= "Questions?  Contact us at #{mail_to 'support@listableapp.com'}."

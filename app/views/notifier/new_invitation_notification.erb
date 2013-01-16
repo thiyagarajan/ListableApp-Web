@@ -1,0 +1,18 @@
+
+Hi <%= @created_user.login %>,
+
+Listable user <%= @creator.login %> has shared a list with you titled: 
+
+	<%= @list.name %>
+	
+<%= @created_user.confirmed? ? "You can see and edit this list by logging in to your Listable account with email #{@created_user.email}.  To log in, go to http://listableapp.com/user_session/new" : "You will need to create and confirm an account with the email #{@created_user.email} before you can collaborate on this list.  To create an account, go to http://listableapp.com/users/new" %>
+
+The direct link to this list, once you are logged in to Listable, is <%= list_items_url(@list.id) %>.
+
+Thanks,
+
+The Listable Team
+
+Listable is a free list sharing service.  If you don't know Listable user <%= @creator.login %> with
+email address <%= @creator.email %>, please forward this email to support@listableapp.com
+and we'll make sure they don't contact you again.

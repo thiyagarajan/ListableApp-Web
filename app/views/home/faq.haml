@@ -1,0 +1,66 @@
+%h2 How to use Listable
+
+%p
+  Listable is a platform for creating and editing ToDo lists that can be easily shared among multiple users,
+  both on the Web and iPhone devices. This page describes how the process of sharing works and will
+  hopefully get you up and running on Listable in just a few minutes.
+  
+%h3 How does reordering and editing in the web interface work?
+
+%p
+  The web interface offers many ways to conveniently create and update your list.  Editing items and the list title is
+  accomplished by simply clicking on the text you want to change.  Reordering your list can be accomplished by dragging 
+  an item to the desired location.  You can also reorder your list of lists in the left by clicking and dragging the list
+  name.
+
+%h3 How does sharing lists work?
+
+%p
+  Listable facilitates sharing of ToDo lists with any number of users.  You can share lists 
+  by either using the web interface or by using your contacts list on the iPhone.  The user
+  with whom you share a list will receive an email letting him or her know that a list is
+  available.  If the other user already has an account, all they need to do is log in and
+  they'll see the list immediately.  If they don't have an account, they'll have to create
+  one using the email that you shared your list with before they can start collaborating.
+  
+
+%h3 What is the Activity Feed?
+
+%p
+  Listable offers a unique Activity Feed which shows you what others have done on shared lists.
+  Use it to see at a glance what has happened on your shared lists.
+
+%h3 What are push notifications?
+
+%p
+  Push notifications are only available for users of our inexpensive iPhone application.  They look
+  just like text messages, but they don't go against your text message plan.  In fact, they're 
+  free and unlimited.
+
+%h3 How do I get push notifications from Listable?
+
+%p
+  Listable sends you push notifications when someone modifies a list you've shared with them.
+  In order to start receiving push notifications, you need to have logged in to the 
+  Listable app on your iPhone at least once.  Push notifications from Listable will appear
+  whether or not the Listable app is open.
+  
+%h3 Can I turn off push notifications from some lists and not others?
+
+%p
+  Yes!  If you're on a particularly active list and don't want to see a notification every
+  time a change is made, you can turn off notifications for that list.  Log in to the Listable
+  web interface, click on the list you want to modify, and click on "Unwatch".  The list will
+  immediately stop sending you push notifications, and new activity won't clutter your Activity
+  Feed.  You will still be able to make changes to the list.
+  
+%p
+  You can also turn off push notifications globally for Listable in your iPhone, or only use 
+  the icon badge count.  This is configured in the iPhone settings for Listable.
+
+%p= link_to('Back to the home page', '/')
+
+- if request.format == :iphone
+  -# We don't use the header bar here, provide necessary links to get around below form
+  %p= link_to "Log in", new_user_session_path
+  %p= link_to "Create an account", new_user_path

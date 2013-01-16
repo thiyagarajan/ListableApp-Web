@@ -1,0 +1,11 @@
+%h2= "Share \"#{@list.name}\""
+
+%p== Invite someone to share this list by entering their email address below.  They will receive an email with instructions about how to view and edit "#{link_to(@list.name, list_items_path(@list))}".
+
+- form_tag( list_collaborators_path(@list), :method => "post", :class => "new_collaborator_form" ) do
+  = render :partial => "form"
+
+= javascript_tag "$('collaborator_email').focus()"
+
+%p{:style => "clear: both; padding-top: 20px"}= link_to("Cancel and return to list collaborators", list_collaborators_path(@list))
+%p{:style => "clear: both;"}= link_to("Cancel and return to list", list_items_path(@list))

@@ -1,0 +1,26 @@
+defaults: &DEFAULTS
+  port: 
+    gateway: 2195
+    feedback: 2196
+  passphrase: 
+    
+development:
+  host: 
+    gateway: gateway.sandbox.push.apple.com    
+    feedback: feedback.sandbox.push.apple.com
+  certificate: apple_push_notification_development.pem
+  <<: *DEFAULTS
+  
+test:
+  host: 
+    gateway: gateway.sandbox.push.apple.com
+    feedback: feedback.sandbox.push.apple.com
+  certificate: apple_push_notification_development.pem
+  <<: *DEFAULTS
+  
+production:
+  host: 
+    gateway: gateway.push.apple.com  
+    feedback: feedback.push.apple.com
+  certificate: apple_push_notification_production.pem
+  <<: *DEFAULTS

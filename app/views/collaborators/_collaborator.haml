@@ -1,0 +1,4 @@
+%li
+  = image_tag(gravatar_url_for(collaborator.email), { :width => 80, :height => 80, :class => 'gravatar-image' })
+  = render_email(collaborator)
+  = delete_collaborator_box(collaborator)
