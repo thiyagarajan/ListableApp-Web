@@ -21,3 +21,4 @@ group :test do
 end
 
 gem 'factory_girl', '1.2.4'
+gem 'rake', '0.8.7'
