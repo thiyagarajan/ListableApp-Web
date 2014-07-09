@@ -27,7 +27,7 @@ config.action_view.cache_template_loading = true
 # Enable threaded mode
 # config.threadsafe!
 
-SERVER_HOST = "23.229.115.23"
+SERVER_HOST = "listablebeta.ondemandworld.com"
 
 # This should really be fixed in the plugin sometime!
 # https://rails.lighthouseapp.com/projects/8995/tickets/49-exception_notification-productionrb-configuration-wiped-by-double-load
