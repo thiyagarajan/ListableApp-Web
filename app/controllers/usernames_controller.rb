@@ -1,5 +1,5 @@
 class UsernamesController < ApplicationController
-  ssl_required :show, :edit, :update unless block_ssl_redirect?
+  #ssl_required :show, :edit, :update unless block_ssl_redirect?
   
   before_filter :require_user
   

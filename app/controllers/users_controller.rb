@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  ssl_required :show, :edit, :update unless block_ssl_redirect?
+  #ssl_required :show, :edit, :update unless block_ssl_redirect?
   
   before_filter :require_no_user, :only => [:new, :create]
   

@@ -6,8 +6,8 @@ config.cache_classes = true
 
 # Full error reports are disabled and caching is turned on
 config.action_controller.consider_all_requests_local = false
-config.action_controller.perform_caching             = true
-config.action_view.cache_template_loading            = true
+config.action_controller.perform_caching = true
+config.action_view.cache_template_loading = true
 
 # See everything in the log (default is :info)
 # config.log_level = :debug
@@ -27,7 +27,7 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
-SERVER_HOST = "listableapp.com"
+SERVER_HOST = "23.229.115.23"
 
 # This should really be fixed in the plugin sometime!
 # https://rails.lighthouseapp.com/projects/8995/tickets/49-exception_notification-productionrb-configuration-wiped-by-double-load
