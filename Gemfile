@@ -1,7 +1,7 @@
 source :gemcutter
 
-gem "rails", '2.3.9'
-gem "mysql"
+gem "rails", '2.3.18'
+gem "mysql", '2.9.1'
 gem "authlogic", '2.1.5'
 gem "haml", '3.0.21'
 gem "memcache-client", '1.8.5', :require => 'memcache'
