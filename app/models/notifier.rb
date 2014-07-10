@@ -14,7 +14,7 @@ class Notifier < ActionMailer::Base
     subject "ListableApp.com Email Confirmation"
     from "ListableApp Support <support@listableapp.com>"
     recipients user.email
-    body :email_confirmation_url => "http://listablebeta.ondemandworld.comemail_confirmations/#{user.perishable_token}", :email => user.email
+    body :email_confirmation_url => "http://listablebeta.ondemandworld.com/email_confirmations/#{user.perishable_token}", :email => user.email
   end
 
   def password_reset_instructions(user)
