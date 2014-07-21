@@ -1,0 +1,25 @@
+%h2 Change User Initials
+
+%p
+  Your initial is how other users on the site see you.  Change your initials below.
+  
+- form_for current_user, :url => initials_update_path do |f|
+  = f.error_messages
+
+  = f.label :initials, 'Initials'
+
+  = f.text_field :initials
+
+  = f.submit "Update", { :class => 'formButton' }
+
+%p{:style => "clear: both"}= link_to "Back to account settings", account_path
+
+:javascript
+  $("form.edit_user").submit(function(event){
+    $("span.error_message").remove();
+    if($.trim($("#user_initials").val()).length == 0)
+    { 
+       $("#user_initials").after("<span style='color:red;position:relative;top:10px;' class='error_message'>Please fill  the Initials</span>");
+       event.preventDefault();
+    }
+  });

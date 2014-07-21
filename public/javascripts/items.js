@@ -204,6 +204,14 @@ $(document).ready(function() {
 
   var submitForm = function() {
     var itemName = $('#newItemName').val();
+    var itemSummary = $('#newItemSummary').val();
+    var itemDetails = $('#newItemDetails').val();
+    var itemFiles = $('#newItemFiles').val();
+    var itemAssignedTo = $('#newItemAssignedTo').val();
+    var itemTargetDate = $('#newItemTargetDate').val();
+    var itemCompletedDate = $('#newItemCompletedDate').val();
+    var itemCategory = $('#newItemCategory').val();
+    var itemPriority = $('#newItemPriority').val();
     var listId = $('#listId').text();
     var authToken = $('#authToken').text();
 
@@ -211,6 +219,14 @@ $(document).ready(function() {
       $('#addItemButton').show();
       $('#addItemForm').hide();
       $('#newItemName').val('');
+      $('#newItemSummary').val('');
+      $('#newItemDetails').val('');
+      $('#newItemFiles').val('');
+      $('#newItemAssignedTo').val('');
+      $('#newItemTargetDate').val('');
+      $('#newItemCompletedDate').val('');
+      $('#newItemCategory').val('');
+      $('#newItemPriority').val('');
     };
       
     var successFunction = function(data) {
@@ -223,17 +239,25 @@ $(document).ready(function() {
       alert('Item save failed.');
     };
 
-    if (!itemName.length == 0) {
+    if (!itemName.length == 0 && !itemSummary.length == 0 && 
+        !itemDetails.length == 0 && !itemFiles.length == 0 &&
+        !itemAssignedTo.length == 0 && !itemTargetDate.length == 0 && 
+        !itemCompletedDate.length == 0 && !itemCategory.length == 0 && 
+        !itemPriority.length == 0) {
       $.ajax({
         url: '/lists/' + listId + '/items',
         type: "POST",
-        data: { item : { name: itemName } },
+        data: { item : { name: itemName, summary: itemSummary, details: itemDetails,
+                        attached_files: itemFiles, assigned_to_user_id: itemAssignedTo,
+                        target_date: itemTargetDate, completed_date: itemCompletedDate,
+                        category: itemCategory, priority: itemPriority} 
+              },
         success: successFunction,
         error: errorFunction
       });
     } else {
       hideNewItemForm();
-      alert('Unable to create item with empty name.');
+      alert('Please fill all the fields to create an Item.');
     }
 
     return false;

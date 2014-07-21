@@ -1,0 +1,26 @@
+%h2 Change User FirstName
+
+%p
+  Your username is how other users on the site see you.  Change your username below.
+  
+- form_for current_user, :url => firstname_update_path do |f|
+  = f.error_messages
+
+  = f.label :first_name, 'First Name'
+
+  = f.text_field :first_name
+
+  = f.submit "Update", { :class => 'formButton' }
+
+%p{:style => "clear: both"}= link_to "Back to account settings", account_path
+
+:javascript
+  $("form.edit_user").submit(function(event){
+    $("span.error_message").remove();
+    if($.trim($("#user_first_name").val()).length == 0 || 
+       $.trim($("#user_first_name").val()).length < 3)
+    { 
+       $("#user_first_name").after("<span style='color:red' class='error_message'>Please enter First Name with atleast 3 characters</span>");
+       event.preventDefault();
+    }
+  });

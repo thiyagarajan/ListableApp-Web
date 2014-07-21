@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :name, :position, :completed
+  attr_accessible :name, :position, :completed, :summary, :details, :attached_files, :assigned_to_user_id,:target_date,:completed_date,:category,:priority
   
   named_scope :active,  :conditions => { :completed => false  }
   named_scope :completed,  :conditions => { :completed => true  }

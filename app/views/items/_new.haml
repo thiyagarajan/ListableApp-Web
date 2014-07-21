@@ -1,5 +1,22 @@
 %form{:id => 'newItemForm' }
+  = label_tag 'Name:'
   = text_field "item", "name", :class => 'in-line-add-field', :id => 'newItemName'
+  = label_tag 'Summary:'
+  = text_area "item", "summary", :id => 'newItemSummary'
+  = label_tag 'Details:'
+  = text_area "item", "details", :id => 'newItemDetails'
+  = label_tag 'Attached Files:'
+  = text_field "item", "attached_files", :class => 'in-line-add-field', :id => 'newItemFiles'
+  = label_tag 'Assign To:'
+  = select(:item,:assigned_to_user_id, @list.users.collect {|u| [u.login,u.id]}, {:prompt => "List of Users"}, :class => 'in-line-add-field', :id => 'newItemAssignedTo')
+  = label_tag 'Target Date:'
+  %input{:name => "item[target_date]", :type => "date", :id => 'newItemTargetDate'}
+  = label_tag 'Completed Date:'
+  %input{:name => "item[completed_date]", :type => "date", :id => 'newItemCompletedDate'}
+  = label_tag 'Category:'
+  = text_field "item", "category", :class => 'in-line-add-field', :id => 'newItemCategory'
+  = label_tag 'priority:'
+  = text_field "item", "priority", :class => 'in-line-add-field', :id => 'newItemPriority'
 
-  = submit_tag 'Done', :class => 'in-line-add-button', :id => 'addItemSubmit'
-  = submit_tag 'Cancel', :class => 'in-line-add-button', :id => 'addItemCancel'
+  = submit_tag 'Done', :id => 'addItemSubmit', :style => "margin-top:45px;margin-left:-281px;"
+  = submit_tag 'Cancel', :class => 'in-line-add-button', :id => 'addItemCancel', :style => "margin-top:45px;margin-left:-145px;"

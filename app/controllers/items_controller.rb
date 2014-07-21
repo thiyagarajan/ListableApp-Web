@@ -116,10 +116,13 @@ class ItemsController < ApplicationController
   end
   
   def create
+
     @item = Item.new(params[:item])
 
     @item.creator = current_user
     @item.list    = @list
+    @item.last_updated = Date.today
+    @item.last_updated_by = current_user.id 
 
     if @item.save
       render :status => 200, :json => { :message => '' }

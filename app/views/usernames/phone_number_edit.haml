@@ -1,0 +1,35 @@
+%h2 Change User Phone Number
+
+%p
+  Your Phone Number is how other users on the site see you.  Change your phone number below.
+  
+- form_for current_user, :url => phone_number_update_path do |f|
+  = f.error_messages
+
+  = f.label :phone_number, 'Phone Number'
+
+  = f.text_field :phone_number
+
+  = f.submit "Update", { :class => 'formButton' }
+
+%p{:style => "clear: both"}= link_to "Back to account settings", account_path
+
+:javascript
+  $("form.edit_user").submit(function(event){
+    $("span.error_message").remove();
+    if($.trim($("#user_phone_number").val()).length == 0)
+    { 
+       $("#user_phone_number").after("<span style='color:red;position:relative;top:10px;' class='error_message'>Please fill  the Phone Number</span>");
+       event.preventDefault();
+    }
+    else if($.trim($("#user_phone_number").val()).length < 10)
+    {
+       $("#user_phone_number").after("<span style='color:red;position:relative;top:10px;' class='error_message'>Please enter the 10 Digit Phone Number</span>");
+       event.preventDefault();
+    }
+    else if(!/^\d{10}$/g.test($.trim($("#user_phone_number").val())))
+    {
+       $("#user_phone_number").after("<span style='color:red;position:relative;top:10px;' class='error_message'>Please enter the valid 10 Digit Phone Number</span>");
+       event.preventDefault();
+    }
+  });

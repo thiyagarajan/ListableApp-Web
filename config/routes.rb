@@ -33,7 +33,15 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :api_authentication
   map.resource :username
-  
+  map.firstname_edit 'username/firstname_edit', :controller => 'usernames', :action => 'firstname_edit'
+  map.firstname_update 'username/firstname_update', :controller => 'usernames', :action => 'firstname_update'
+  map.lastname_edit 'username/lastname_edit', :controller => 'usernames', :action => 'lastname_edit'
+  map.lastname_update 'username/lastname_update', :controller => 'usernames', :action => 'lastname_update'
+  map.initials_edit 'username/initials_edit', :controller => 'usernames', :action => 'initials_edit'
+  map.initials_update 'username/initials_update', :controller => 'usernames', :action => 'initials_update'
+  map.phone_number_edit 'username/phone_number_edit', :controller => 'usernames', :action => 'phone_number_edit'
+  map.phone_number_update 'username/phone_number_update', :controller => 'usernames', :action => 'phone_number_update'
+
   map.confirm_email 'email_confirmations/:id', :controller => 'email_confirmations', :action => 'new'
   
   map.subscription_redirect 'subscription_redirect', :controller => 'users', :action => 'show'  

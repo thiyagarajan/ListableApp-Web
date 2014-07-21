@@ -1,0 +1,26 @@
+%h2 Change User LastName
+
+%p
+  Your lastname is how other users on the site see you.  Change your lastname below.
+  
+- form_for current_user, :url => lastname_update_path do |f|
+  = f.error_messages
+
+  = f.label :last_name, 'Last Name'
+
+  = f.text_field :last_name
+
+  = f.submit "Update", { :class => 'formButton' }
+
+%p{:style => "clear: both"}= link_to "Back to account settings", account_path
+
+:javascript
+  $("form.edit_user").submit(function(event){
+    $("span.error_message").remove();
+    if($.trim($("#user_last_name").val()).length == 0 || 
+       $.trim($("#user_last_name").val()).length < 3)
+    { 
+       $("#user_last_name").after("<span style='color:red' class='error_message'>Please enter Last Name with atleast 3 characters</span>");
+       event.preventDefault();
+    }
+  });
